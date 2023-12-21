@@ -1,0 +1,44 @@
+<html>
+<body>
+<input type="text" placeholder="numOne">
+<input type="text" placeholder="numTwo">
+<input type="text" placeholder="mod">
+<input type="text" placeholder="Введите знак +*^" id="znak">
+<input type="button" value="Ввод" onclick="mod()">
+<p id="result">Результат:</p>
+<script>
+function modul(a,b,c){
+let calculation = document.getElementById('znak').value;
+
+switch (calculation) {
+case "+":
+if (a+b>c)
+return (a+b)%c + ` (mod ${c})`;
+else
+return a+b;
+
+case "*":
+if (a*b > c)
+return (a*b)%c + ` (mod ${c})`;
+else
+return a*b;
+
+case "^":
+if (a**b > c)
+return (a**b)%c + ` (mod ${c})`;
+else
+return a**b;
+
+default:
+return "Ошибка";
+}}
+
+function mod(){
+let a = Number(document.querySelector('input[placeholder="numOne"]').value);
+let b = Number(document.querySelector('input[placeholder="numTwo"]').value);
+let c = Number(document.querySelector('input[placeholder="mod"]').value);
+document.getElementById('result').innerText = `Результат: ${modul(a,b,c)}`;
+}
+</script>
+</body>
+</html>
